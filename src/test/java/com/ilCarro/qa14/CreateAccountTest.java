@@ -24,7 +24,7 @@ public class CreateAccountTest extends TestBase{
         fillField(By.cssSelector("#second_name"), "Truli");
         fillField(By.cssSelector("#email"), "ulitruli@gmail.com");
         fillField(By.cssSelector("#password"), "!weAD5445");
-        
+        driver.findElement(By.cssSelector("#check_policy")).click();
 
 
 
