@@ -5,29 +5,40 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class HeaderTest extends TestBase{
+
+    //Click on the [Search] button
     @Test
-    public void headerButtonCklick(){
-
-        //Click on the [Search] button
-        clickOnButton(By.xpath("//ul[@class=\"header__nav desktop\"]//li//a[contains(.,'Search')]"));
-
-        //Click on the [let the car work] button
-        clickOnButton(By.xpath("//ul[@class=\"header__nav desktop\"]//li//a[contains(.,'Let the cat work')]"));
-
-       //Click on [Terms of use] button,
-        //Commented, failed the test
-        //clickOnButton(By.xpath("//ul[@class=\"header__nav desktop\"]//li//a[contains(.,'Terms of use')]"));
-
-
-        //Click on [Sign up] button
-        clickOnButton(By.xpath("//ul[@class=\"header__nav desktop\"]//li//a[contains(.,'Sign up')]"));
-
-        //Click on [Log in] button
-        clickOnButton(By.xpath("//ul[@class=\"header__nav desktop\"]//li//a[contains(.,'Log in')]"));
+    public void findSearchTest() {
+        click(By.xpath("//ul[@class='header__nav desktop']/li[1]"));
+        Assert.assertTrue(isElementPresent1(By.cssSelector(".search-sidebar__content")));
     }
-    private void clickOnButton(By locator){
 
-        driver.findElement(locator).click();
-        Assert.assertTrue(isElementPresent(locator));
+    //Click on the [let the car work] button
+    @Test
+    public void findLetTheCarWorkTest(){
+        click(By.xpath("//ul[@class='header__nav desktop']/li[2]"));
+       Assert.assertTrue(isElementPresent1(By.cssSelector(".let-carwork-style_let_car__work__2nUyo.let-carwork-style_container__2JKHv")));
     }
+
+    //Click on [Sign up] button
+    @Test
+    public void findSignUpTest(){
+        click(By.xpath("//ul[@class='header__nav desktop']/li[4]"));
+        Assert.assertTrue(isElementPresent1(By.cssSelector(".signup__right_block")));
+    }
+
+    //Click on [Log in] button
+    @Test
+    public void findLogIn(){
+        click(By.xpath("//ul[@class='header__nav desktop']/li[2]"));
+        isLoginFormPresent();
+    }
+
+//Click on [Terms of use] button,
+   // @Test
+//    public void findTermsOfUseTabTest() {
+//        click(By.xpath("//ul[@class='header__nav desktop']/li[3]"));
+//        Assert.assertTrue(isElementPresent1(By.xpath("//div[contains(.,'Terms')]")));
+
+//    }
 }

@@ -9,32 +9,28 @@ public class CreateAccountTest extends TestBase{
     //preconditions : user should be logged out
     // click on SignUp Button
     @BeforeMethod
-    public void ensureProcondition(){
-        if(!isElementPresent(By.cssSelector("[href='/signup']"))){
+    public void ensurePrecondition(){
+        if(!isSignUpFormPresent()){
             //sign up mot present
             //click on logout button
-            driver.findElement(By.xpath("//a[contains(.,'logOut')]")).click();
+            logOut();
         }
     }
+
     @Test
     public void signUpTest(){
-        driver.findElement(By.cssSelector("[href='/signup']")).click();
-        Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
-        fillField(By.cssSelector("#first_name"), "Uli");
-        fillField(By.cssSelector("#second_name"), "Truli");
-        fillField(By.cssSelector("#email"), "ulitruli@gmail.com");
-        fillField(By.cssSelector("#password"), "!weAD5445");
-        driver.findElement(By.cssSelector("#check_policy")).click();
-
-
+        click(By.cssSelector("[href='/signup']"));
+        isLoginFormPresent();
+        type(By.cssSelector("#first_name"), "Uli1");
+        type(By.cssSelector("#second_name"), "Truli1");
+        type(By.cssSelector("#email"), "ulitruli1@gmail.com");
+        type(By.cssSelector("#password"), "!weAD5446");
+        click(By.cssSelector("#check_policy"));
+        submit();
+        Assert.assertTrue(isElementPresent1(By.cssSelector(".Login_login__right_block__1niYm")));
 
     }
 
-    private void fillField(By locator, String text){
-        driver.findElement(locator).click();
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(text);
-    }
     //fill registration form
     //click Submit button
     //check login form displayed
