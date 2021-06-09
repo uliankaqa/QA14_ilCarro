@@ -9,12 +9,13 @@ public class FooterTest extends TestBase{
     @BeforeMethod
     public void ensurePrecondition() {
         jumpToFooter();
-        Assert.assertTrue(isElementPresent1(By.xpath("//footer[@class=\"container-full\"]")));
+        isFooterPresent();
     }
 
     @Test
     public void clickOnLogoButton(){
-        click(By.cssSelector(".footer__top_row_logo"));
-        Assert.assertTrue(isElementPresent1(By.cssSelector(".Main_mainpage__find_your_car__AHLkw")));
+        clickOnLogoTab();
+        Assert.assertTrue(isFindCarFormPresent());
     }
+
 }
