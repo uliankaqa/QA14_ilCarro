@@ -1,31 +1,32 @@
-package com.ilCarro.qa14;
+package com.ilCarro.qa14.tests;
 
+import com.ilCarro.qa14.models.User;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CreateAccountTest extends TestBase{
+public class CreateAccountTest extends TestBase {
     //preconditions : user should be logged out
     // click on SignUp Button
     @BeforeMethod
     public void ensurePrecondition(){
-        if(!isSignUpTabPresent()){
+        if(!app.header().isSignUpTabPresent()){
             //sign up mot present
             //click on logout button
-            logOut();
+            app.header().logOut();
         }
     }
 
     @Test
     public void signUpTest(){
-        clickOnSignUpTab();
-        isSignUpTabPresent();
-        fillRegistrationForm(new User().withFirstName("Uli1")
+        app.header().clickOnSignUpTab();
+        app.header().isSignUpTabPresent();
+        app.user().fillRegistrationForm(new User().withFirstName("Uli1")
                 .withSecondName("Truli1")
                 .withEmail("ulitruli1@gmail.com")
                 .withPassword("!weAD5446"));
-        clickOnCheckPolicyBox();
-        submit();
-        isLogInFormPresent();
+        app.user().clickOnCheckPolicyBox();
+        app.user().submit();
+        app.user().isLogInFormPresent();
 
     }
 

@@ -1,12 +1,11 @@
-package com.ilCarro.qa14;
+package com.ilCarro.qa14.models;
 
 public class User {
 
-    private  String firstName;
-    private  String secondName;
-    private  String email;
-    private  String password;
-
+    private String firstName;
+    private String secondName;
+    private String email;
+    private String password;
 
 
     public User withFirstName(String firstName) {
@@ -23,10 +22,12 @@ public class User {
         this.email = email;
         return this;
     }
-    public User withPassword(String password){
+
+    public User withPassword(String password) {
         this.password = password;
         return this;
     }
+
     public String getFirstName() {
         return firstName;
     }

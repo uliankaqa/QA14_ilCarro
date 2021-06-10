@@ -1,37 +1,35 @@
-package com.ilCarro.qa14;
+package com.ilCarro.qa14.tests;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class HeaderTest extends TestBase{
+public class HeaderTest extends TestBase {
 
     //Click on the [Search] button
     @Test
     public void findSearchTest() {
-        clickOnSearchTab();
-        isSearchFormPresent();
+        app.header().clickOnSearchTab();
+        app.header().isSearchFormPresent();
     }
 
     //Click on the [let the car work] button
     @Test
     public void findLetTheCarWorkTest(){
-        clickOnAddCarTab();
-        isAddCarFormPresent();
+        app.header().clickOnAddCarTab();
+        app.car().isAddCarFormPresent();
     }
 
     //Click on [Sign up] button
     @Test
     public void findSignUpTest(){
-        clickOnSignUpTab();
-        isSignUpFormPresent();
+        app.header().clickOnSignUpTab();
+        app.user().isSignUpFormPresent();
     }
 
     //Click on [Log in] button
     @Test
     public void findLogInTest(){
-        clickOnLogInTab();
-        isLogInTabPresent();
+        app.header().clickOnLogInTab();
+        app.header().isLogInTabPresent();
     }
 
 //Click on [Terms of use] button,
@@ -41,4 +39,5 @@ public class HeaderTest extends TestBase{
 //        Assert.assertTrue(isElementPresent1(By.xpath("//div[contains(.,'Terms')]")));
 
 //    }
+
 }
