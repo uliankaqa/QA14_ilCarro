@@ -21,7 +21,7 @@ public class LoginTests extends TestBase {
         //go to login page
         app.header().clickOnLogInTab();
         //fill login form
-        app.user().fillLoginForm(new User().withEmail("ulitruli1@gmail.com").withPassword("!weAD5446"));
+        app.user().fillLoginForm(new User().withEmail("ulggggitruli1@gmail.com").withPassword("!weAD5446"));
         //click submit
         app.user().submit();
         try {
