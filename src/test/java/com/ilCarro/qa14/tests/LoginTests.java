@@ -63,7 +63,7 @@ public class LoginTests extends TestBase {
         app.user().fillLoginForm(user);
         //click submit
         app.user().submit();
-        //Assert.assertTrue(app.header().isLogOutTabPresent());
+        Assert.assertTrue(app.header().isLogInTabPresent());
     }
 
 }

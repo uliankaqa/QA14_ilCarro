@@ -39,8 +39,10 @@ public class HelperBase {
     public void type(By locator, String text) {
         if (text != null) {
             click(locator);
-            driver.findElement(locator).clear();
-            driver.findElement(locator).sendKeys(text);
+            //driver.findElement(locator).clear();
+            //driver.findElement(locator).sendKeys(text);
+            driver.findElement(locator).sendKeys(Keys
+                    .chord(Keys.CONTROL,"a") + Keys.DELETE + text);
         }
     }
 

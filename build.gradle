@@ -13,6 +13,11 @@ dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
     implementation 'org.testng:testng:7.4.0'
     implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'//API
+    implementation 'org.apache.httpcomponents:fluent-hc:4.5.13'//API
+    implementation 'com.google.code.gson:gson:2.8.7'//API GSON (Google) library
+    implementation 'io.rest-assured:rest-assured:4.4.0'//API Rest Assured library
+
 }
 
 test{
