@@ -3,9 +3,13 @@
 <suite name="Regression" verbose="1" >
     <test name="Regression" >
         <classes>
-            <class name="com.ilCarro.qa14.tests.OpenHomePageTest" />
-            <class name="com.ilCarro.qa14.tests.CreateAccountTest" />
-            <class name="com.ilCarro.qa14.tests.LoginTests">
+            <!--<class name="com.ilCarro.qa14.tests.OpenHomePageTest" />-->
+            <class name="com.ilCarro.qa14.tests.CreateAccountTest" >
+               <methods>
+                    <include name="signUpFromDataProviderFromCSVTest"/>
+                </methods>
+            </class>
+           <class name="com.ilCarro.qa14.tests.LoginTests">
                 <methods>
                     <exclude name=".*NegativeTest.*" />
                 </methods>

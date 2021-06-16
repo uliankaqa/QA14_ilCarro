@@ -24,4 +24,13 @@ public class CreateCarTest extends TestBase {
                 .withDistance("1000"));
     }
 
+    @Test(dataProvider = "validCarFromCSV", dataProviderClass = DataProviders.class)
+    public void addCarTestFromCSV(Car car) throws InterruptedException{
+        app.user().pause();
+
+        app.header().clickOnAddCarTab();
+
+        app.car().fillCarForm(car);
+    }
+
 }

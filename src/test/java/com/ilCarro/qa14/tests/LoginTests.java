@@ -1,6 +1,7 @@
 package com.ilCarro.qa14.tests;
 
 import com.ilCarro.qa14.models.User;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -14,6 +15,7 @@ public class LoginTests extends TestBase {
             //click on logout button
             app.header().logOut();
         }
+
     }
 
     @Test
@@ -21,7 +23,7 @@ public class LoginTests extends TestBase {
         //go to login page
         app.header().clickOnLogInTab();
         //fill login form
-        app.user().fillLoginForm(new User().withEmail("ulggggitruli1@gmail.com").withPassword("!weAD5446"));
+        app.user().fillLoginForm(new User().withEmail("1@gmail.com").withPassword("!weAD5446"));
         //click submit
         app.user().submit();
         try {
@@ -30,19 +32,38 @@ public class LoginTests extends TestBase {
             e.printStackTrace();
         }
         //assert user logged in
-        app.header().isLogOutTabPresent();
+        Assert.assertTrue(app.header().isLogOutTabPresent());
+    }
+    @Test(dataProvider = "validUserFromCSV", dataProviderClass = DataProviders.class)
+    public void loginRegisteredUserFromCSVPositiveTest(User user) {
+        //go to login page
+        app.header().clickOnLogInTab();
+        //fill login form
+        app.user().fillLoginForm(user);
+        //click submit
+        app.user().submit();
+        try {
+            app.user().pause();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //assert user logged in
+        logger.info("Log Out Tab present : " + app.header().isLogOutTabPresent() + " , Expected value : true ");
+        Assert.assertTrue(app.header().isLogOutTabPresent());
     }
 
 
-    @Test
-    public void loginRegisteredUserWithWrongPasswordNegativeTest() {
+    @Test(dataProvider = "wrongPassUserFromCSV", dataProviderClass = DataProviders.class)
+    public void loginRegisteredUserWithWrongPasswordNegativeTest(User user) {
 
         //go to login page
         app.header().clickOnLogInTab();
         //fill login form
-        app.user().fillLoginForm(new User().withEmail("ulitruli1@gmail.com").withPassword("!"));
+        app.user().fillLoginForm(user);
         //click submit
         app.user().submit();
+        //Assert.assertTrue(app.header().isLogOutTabPresent());
     }
 
 }

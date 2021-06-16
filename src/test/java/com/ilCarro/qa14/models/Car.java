@@ -32,4 +32,12 @@ public class Car {
         return distance;
     }
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "country='" + country + '\'' +
+                ", address='" + address + '\'' +
+                ", distance='" + distance + '\'' +
+                '}';
+    }
 }

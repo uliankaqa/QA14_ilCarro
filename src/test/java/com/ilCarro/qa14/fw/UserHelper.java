@@ -23,9 +23,10 @@ public class UserHelper extends HelperBase{
         return isElementPresent1(By.xpath("//a[contains(., 'logOut')]"));
     }
 
-    public void isLogInFormPresent() {
-        Assert.assertTrue(isElementPresent1(By.cssSelector(".Login_login__right_block__1niYm")));
+    public boolean isLogInFormPresent() {
+        return isElementPresent1(By.cssSelector(".Login_login__right_block__1niYm"));
     }
+
 
     ////-------------------------------------------------------------------
     public void logIn() {
@@ -50,5 +51,10 @@ public class UserHelper extends HelperBase{
         type(By.name("email"), user.getEmail());
         //fill password
         type(By.name("password"), user.getPassword());
+    }
+
+    public void clearLoginForm(){
+        clear(By.name("email"));
+        clear(By.name("password"));
     }
 }

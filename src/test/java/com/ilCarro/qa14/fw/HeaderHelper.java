@@ -38,8 +38,8 @@ public class HeaderHelper extends HelperBase{
 
 
     //Log Out
-    public void isLogOutTabPresent() {
-        Assert.assertTrue(isElementPresent1(By.xpath("//a[contains(.,'logOut')]")));
+    public boolean isLogOutTabPresent() {
+       return isElementPresent1(By.xpath("//a[contains(.,'logOut')]"));
         //Assert.assertTrue(isElementPresent(By.xpath("//a[contains(.,'logOut')]")));
     }
 

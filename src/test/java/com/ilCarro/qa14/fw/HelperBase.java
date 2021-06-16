@@ -1,10 +1,11 @@
 package com.ilCarro.qa14.fw;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import com.google.common.io.Files;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.NoSuchElementException;
 
 public class HelperBase {
@@ -43,7 +44,26 @@ public class HelperBase {
         }
     }
 
+    //clear form methods
+    public void clear(By locator) {
+        click(locator);
+        driver.findElement(locator).clear();
+    }
 
+    //Screenshots maker
+
+    public String takeScreenshot(){
+        File tmp = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);//OutputType.FILE - small wight
+                                                                   // OutputType.BASE64 - quickly
+        File screenshot = new File("src/test/screenshots/screenshot" + System.currentTimeMillis() + ".png");
+        try {
+            Files.copy(tmp, screenshot);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return screenshot.getAbsolutePath();
+
+    }
 
 
 
