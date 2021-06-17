@@ -3,11 +3,11 @@
 <suite name="UserTest" verbose="1">
     <test name="UserTest">
         <classes>
-            <class name="com.ilCarro.qa14.tests.CreateAccountTest">
+           <!-- <class name="com.ilCarro.qa14.tests.CreateAccountTest">
                 <methods>
                     <include name="signUpFromDataProviderFromCSVTest"/>
                 </methods>
-            </class>
+            </class>-->
             <class name="com.ilCarro.qa14.tests.LoginTests">
                 <methods>
                     <include name="loginRegisteredUserFromCSVPositiveTest"/>
