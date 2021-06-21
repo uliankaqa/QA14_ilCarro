@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="UserTest" verbose="1">
+    <test name="UserTest">
+        <classes>
+           <!-- <class name="com.ilCarro.qa14.tests.CreateAccountTest">
+                <methods>
+                    <include name="signUpFromDataProviderFromCSVTest"/>
+                </methods>
+            </class>-->
+            <class name="com.ilCarro.qa14.tests.LoginTests">
+                <methods>
+                    <include name="loginRegisteredUserFromCSVPositiveTest"/>
+                    <include name="loginRegisteredUserWithWrongPasswordNegativeTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

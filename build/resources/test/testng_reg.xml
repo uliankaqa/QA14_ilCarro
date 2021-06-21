@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression" verbose="1" >
+    <test name="Regression" >
+        <classes>
+            <!--<class name="com.ilCarro.qa14.tests.OpenHomePageTest" />-->
+            <class name="com.ilCarro.qa14.tests.CreateAccountTest" >
+               <methods>
+                    <include name="signUpFromDataProviderFromCSVTest"/>
+                </methods>
+            </class>
+           <class name="com.ilCarro.qa14.tests.LoginTests">
+                <methods>
+                    <exclude name=".*NegativeTest.*" />
+                </methods>
+            </class>
+            <class name="com.ilCarro.qa14.tests.CreateCarTest" />
+        </classes>
+    </test>
+</suite>
